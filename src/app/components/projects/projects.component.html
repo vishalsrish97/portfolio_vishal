@@ -1,0 +1,33 @@
+<section class="section-wrapper bg-white">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <p class="section-tag">What I've Built</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="projects-grid stagger-children">
+      @for (project of data.projects; track project.name) {
+        <div class="project-card">
+          <div class="proj-header">
+            <div class="proj-icon"><i class="fa-solid fa-code"></i></div>
+            <p class="proj-period">{{ project.period }}</p>
+          </div>
+          <h3 class="proj-name">{{ project.name }}</h3>
+          <p class="proj-stack">{{ project.stack }}</p>
+          <ul class="proj-desc">
+            @for (bullet of project.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+          <a [href]="project.link" target="_blank" rel="noopener" class="proj-link">
+            View Project
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

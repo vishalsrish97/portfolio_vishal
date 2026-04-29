@@ -1,0 +1,27 @@
+<section class="section-wrapper bg-white">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <p class="section-tag">Where I've Worked</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="timeline">
+      @for (exp of data.experience; track exp.company) {
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <p class="tl-period">{{ exp.period }}</p>
+          <h3 class="tl-role">{{ exp.role }}</h3>
+          <p class="tl-company">{{ exp.company }}</p>
+          <ul class="tl-list">
+            @for (bullet of exp.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

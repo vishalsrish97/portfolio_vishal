@@ -1,0 +1,44 @@
+<aside class="sidebar" [class.open]="isOpen">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-bar" [style.height.%]="scrollPct"></div>
+
+  <!-- Avatar -->
+  <div class="avatar-wrap">
+    <i class="fa-solid fa-user"></i>
+  </div>
+
+  <!-- Identity -->
+  <div class="sidebar-name">{{ data.name }}</div>
+  <div class="sidebar-role">{{ data.role }}</div>
+  <div class="sidebar-loc">
+    <i class="fa-solid fa-location-dot accent-icon"></i>
+    {{ data.location }}
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      @for (link of data.navLinks; track link.href) {
+        <li>
+          <a
+            [href]="link.href"
+            [class.active]="activeSection === link.href.replace('#', '')"
+            (click)="$event.preventDefault(); scrollTo(link.href)"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="sidebar-footer">
+    <p>&copy; 2026 All rights reserved.</p>
+    <p>Made with <i class="fa-solid fa-heart heart-icon"></i> by {{ data.name }}</p>
+  </footer>
+
+</aside>

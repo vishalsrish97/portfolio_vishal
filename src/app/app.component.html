@@ -1,0 +1,42 @@
+<div class="portfolio-layout">
+
+  <!-- Hamburger button (mobile) -->
+  <button class="hamburger" [class.open]="sidebarOpen()" (click)="toggleSidebar()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Overlay (mobile) -->
+  <div class="sidebar-overlay" [class.open]="sidebarOpen()" (click)="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <app-sidebar
+    [activeSection]="activeSection()"
+    [scrollPct]="scrollPct()"
+    [isOpen]="sidebarOpen()"
+    (navClicked)="closeSidebar()"
+  />
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Dot Navigation -->
+    <nav class="dot-nav" aria-label="Section navigation">
+      @for (section of dotSections; track section.id) {
+        <a [href]="'#' + section.id"
+           [class.active]="activeSection() === section.id"
+           [attr.aria-label]="section.label"
+           (click)="$event.preventDefault(); scrollTo(section.id)">
+        </a>
+      }
+    </nav>
+
+    <app-home id="home" />
+    <app-about id="about" />
+    <app-skills id="skills" />
+    <app-experience id="experience" />
+    <app-education id="education" />
+    <app-projects id="projects" />
+    <app-contact id="contact" />
+
+  </main>
+</div>

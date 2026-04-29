@@ -1,0 +1,55 @@
+<section class="section-wrapper bg-light">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <p class="section-tag">What I Know</p>
+      <h2 class="section-title">Skills &amp; Tools</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid">
+
+      <!-- Left column -->
+      <div class="reveal">
+        @for (skill of leftSkills; track skill.name) {
+          <div class="skill-item">
+            <div class="skill-top">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-pct">{{ skill.percentage }}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" [attr.data-width]="skill.percentage"></div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Right column -->
+      <div class="reveal">
+        @for (skill of rightSkills; track skill.name) {
+          <div class="skill-item">
+            <div class="skill-top">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-pct">{{ skill.percentage }}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" [attr.data-width]="skill.percentage"></div>
+            </div>
+          </div>
+        }
+
+        <!-- Tools -->
+        <div class="tools-wrap">
+          <p class="tools-heading">Tools</p>
+          @for (tool of data.tools; track tool.name) {
+            <span class="tool-tag">
+              <i [class]="tool.icon"></i>
+              {{ tool.name }}
+            </span>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

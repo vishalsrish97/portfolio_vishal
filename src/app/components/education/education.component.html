@@ -1,0 +1,24 @@
+<section class="section-wrapper bg-light">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <p class="section-tag">Academic Background</p>
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-grid stagger-children">
+      @for (edu of data.education; track edu.year) {
+        <div class="edu-card">
+          <div class="edu-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="edu-year">{{ edu.year }}</div>
+          <div class="edu-degree">{{ edu.degree }}</div>
+          <div class="edu-school">{{ edu.school }}</div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

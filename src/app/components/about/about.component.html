@@ -1,0 +1,66 @@
+<section class="section-wrapper bg-white">
+  <div class="section-inner">
+
+    <div class="section-header reveal">
+      <p class="section-tag">Who I Am</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="about-grid">
+
+      <!-- Text column -->
+      <div class="about-text reveal">
+        <p>{{ data.summary }}</p>
+
+        <div class="info-grid stagger-children">
+          <div class="info-item">
+            <label>Name</label>
+            <span>{{ data.name }}</span>
+          </div>
+          <div class="info-item">
+            <label>Role</label>
+            <span>{{ data.role }}</span>
+          </div>
+          <div class="info-item">
+            <label>Location</label>
+            <span>{{ data.contact.location }}</span>
+          </div>
+          <div class="info-item">
+            <label>Experience</label>
+            <span>3+ Years</span>
+          </div>
+          <div class="info-item">
+            <label>Email</label>
+            <span class="small">{{ data.contact.email }}</span>
+          </div>
+          <div class="info-item">
+            <label>Phone</label>
+            <span>{{ data.contact.phone }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card column -->
+      <div class="about-visual reveal">
+        <div class="about-card">
+          <div class="card-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="card-name">{{ data.name }}</div>
+          <div class="card-role">{{ data.role }}</div>
+
+          <div class="stat-row">
+            @for (stat of data.stats; track stat.label) {
+              <div class="stat-item">
+                <div class="stat-num">{{ stat.num }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

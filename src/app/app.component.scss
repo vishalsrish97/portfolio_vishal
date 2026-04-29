@@ -1,0 +1,5 @@
+// AppComponent styles are minimal — layout is handled globally
+// and each child component has its own scoped SCSS.
+:host {
+  display: block;
+}
